@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Autoplayer</string>
+
+    <!-- notifications -->
+    <string name="status_notification_channel_name">Status Notification</string>
+    <string name="status_notification_title">Autoplayer is on!</string>
+</resources>
