@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/bottom_menu_graph"
+    app:startDestination="@id/page_devices_selection">
+
+    <fragment
+        android:id="@+id/page_devices_selection"
+        android:name="ru.nevdokimof.autoplayer.fragments.DevicesSelectionFragment"
+        android:label="DevicesSelectionFragment" />
+    <fragment
+        android:id="@+id/page_settings"
+        android:name="ru.nevdokimof.autoplayer.fragments.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/page_help"
+        android:name="ru.nevdokimof.autoplayer.fragments.HelpFragment"
+        android:label="HelpFragment" />
+</navigation>

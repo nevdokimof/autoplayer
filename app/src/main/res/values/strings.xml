@@ -4,4 +4,9 @@
     <!-- notifications -->
     <string name="status_notification_channel_name">Status Notification</string>
     <string name="status_notification_title">Autoplayer is on!</string>
+
+    <!-- bottom menu -->
+    <string name="bottom_menu_devices_title">Devices</string>
+    <string name="bottom_menu_settings_title">Settings</string>
+    <string name="bottom_menu_help_title">Help</string>
 </resources>
