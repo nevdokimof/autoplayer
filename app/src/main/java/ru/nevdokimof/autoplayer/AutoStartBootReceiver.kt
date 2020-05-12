@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat.startForegroundService
 
 class AutoStartBootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
+        if (intent?.action == Intent.ACTION_BOOT_COMPLETED)
             context?.let { startBluetoothMonitoringService(it) }
     }
 
