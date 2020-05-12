@@ -11,7 +11,7 @@ import ru.nevdokimof.autoplayer.Constants.ACTION_BLUETOOTH_DEVICE_CONNECTION_STA
 import ru.nevdokimof.autoplayer.Constants.STATUS_NOTIFICATION_CHANNEL_ID
 import ru.nevdokimof.autoplayer.Constants.STATUS_NOTIFICATION_ID
 
-class BluetoothTrackingService : Service() {
+class BluetoothMonitoringService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         registerBluetoothEventsReceiver()
 
@@ -48,7 +48,6 @@ class BluetoothTrackingService : Service() {
     }
 
     companion object {
-        private const val TAG = "BTTrackingService"
         private val bluetoothConnectedIntentFilter =
             IntentFilter(ACTION_BLUETOOTH_DEVICE_CONNECTION_STATE_CHANGED)
 

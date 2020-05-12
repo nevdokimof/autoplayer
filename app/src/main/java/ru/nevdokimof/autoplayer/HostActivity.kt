@@ -15,7 +15,7 @@ class HostActivity : AppCompatActivity() {
 
     private fun startBluetoothTrackingService() {
         val bluetoothTrackingServiceIntent =
-            Intent(applicationContext, BluetoothTrackingService::class.java)
+            Intent(applicationContext, BluetoothMonitoringService::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             startForegroundService(bluetoothTrackingServiceIntent)
         else

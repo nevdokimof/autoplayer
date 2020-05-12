@@ -7,12 +7,12 @@ import androidx.core.content.ContextCompat.startForegroundService
 
 class AutoStartBootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        context?.let { startBluetoothTrackingService(it) }
+            context?.let { startBluetoothMonitoringService(it) }
     }
 
-    private fun startBluetoothTrackingService(context: Context) {
-        val bluetoothTrackingServiceIntent =
-            Intent(context, BluetoothTrackingService::class.java)
-        startForegroundService(context, bluetoothTrackingServiceIntent)
+    private fun startBluetoothMonitoringService(context: Context) {
+        val bluetoothMonitoringServiceIntent =
+            Intent(context, BluetoothMonitoringService::class.java)
+        startForegroundService(context, bluetoothMonitoringServiceIntent)
     }
 }

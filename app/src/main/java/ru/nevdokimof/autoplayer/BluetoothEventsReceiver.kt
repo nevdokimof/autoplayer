@@ -32,8 +32,6 @@ class BluetoothEventsReceiver : BroadcastReceiver() {
     }
 
     companion object {
-        const val TAG = "BTActionsReceiver"
-
         private val KEY_EVENT_MEDIA_PLAY_DOWN =
             KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_MEDIA_PLAY)
 

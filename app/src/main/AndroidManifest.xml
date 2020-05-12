@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <service android:name=".BluetoothTrackingService" />
+        <service android:name=".BluetoothMonitoringService" />
 
         <receiver
             android:name=".AutoStartBootReceiver"
