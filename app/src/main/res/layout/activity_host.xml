@@ -2,9 +2,57 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HostActivity">
+    android:background="@android:color/white"
+    tools:context=".HostActivity"
+    android:animateLayoutChanges="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:title="@string/app_name" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_button_on_off"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:background="@drawable/button_on_off_background"
+        android:elevation="10dp"
+        android:outlineProvider="none"
+        app:layout_constraintBottom_toBottomOf="@id/top_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_on_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorSecondaryLight"
+            android:elevation="18dp"
+            app:fabCustomSize="0dp"
+            app:fabSize="normal"
+            app:tint="@null"
+            android:scaleType="center"
+            android:src="@drawable/ic_power_on_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <fragment
         android:id="@+id/nav_host_fragment"
@@ -22,10 +70,26 @@
         android:id="@+id/menu_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:outlineProvider="bounds"
+        app:backgroundTint="@color/colorPrimary"
+        app:itemIconTint="@color/colorSecondary"
+        app:itemTextColor="@color/colorSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_dim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorDim"
+        android:elevation="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

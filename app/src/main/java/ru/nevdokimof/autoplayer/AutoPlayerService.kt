@@ -7,13 +7,17 @@ import android.content.IntentFilter
 import android.os.Build
 import android.os.IBinder
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import ru.nevdokimof.autoplayer.Constants.ACTION_BLUETOOTH_DEVICE_CONNECTION_STATE_CHANGED
 import ru.nevdokimof.autoplayer.Constants.STATUS_NOTIFICATION_CHANNEL_ID
 import ru.nevdokimof.autoplayer.Constants.STATUS_NOTIFICATION_ID
+import ru.nevdokimof.autoplayer.model.ServiceStatus
 
-class BluetoothMonitoringService : Service() {
+class AutoPlayerService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         registerBluetoothEventsReceiver()
+        _serviceStatus.postValue(ServiceStatus.RUNNING)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             setupAsForegroundService()
@@ -45,6 +49,7 @@ class BluetoothMonitoringService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         applicationContext.unregisterReceiver(bluetoothActionsReceiver)
+        _serviceStatus.postValue(ServiceStatus.DOWN)
     }
 
     companion object {
@@ -52,5 +57,9 @@ class BluetoothMonitoringService : Service() {
             IntentFilter(ACTION_BLUETOOTH_DEVICE_CONNECTION_STATE_CHANGED)
 
         private val bluetoothActionsReceiver by lazy { BluetoothEventsReceiver() }
+
+        private val _serviceStatus = MutableLiveData(ServiceStatus.DOWN)
+        val serviceStatus: LiveData<ServiceStatus>
+            get() = _serviceStatus
     }
 }
