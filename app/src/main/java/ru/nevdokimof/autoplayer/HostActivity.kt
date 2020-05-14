@@ -18,12 +18,12 @@ class HostActivity : AppCompatActivity() {
         startBluetoothTrackingService()
     }
 
-    private fun startBluetoothTrackingService() {
-        val bluetoothTrackingServiceIntent =
+    private fun startBluetoothMonitoringService() {
+        val bluetoothMonitoringServiceIntent =
             Intent(applicationContext, BluetoothMonitoringService::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            startForegroundService(bluetoothTrackingServiceIntent)
+            startForegroundService(bluetoothMonitoringServiceIntent)
         else
-            startService(bluetoothTrackingServiceIntent)
+            startService(bluetoothMonitoringServiceIntent)
     }
 }
